@@ -2,10 +2,9 @@
 This file contains all of the code for the Main Menu
 ----------------------------------*/
 
-var startButton = new GameObject();
+var startButton = new GameObject({width:200, x:100}); // change the width and add and x and y values to move the box
 //startButton.img.src="images/mrt.jpg"
-startButton.width=200;
-startButton.hitBoxWidth=800
+
 console.log(startButton.collisionPoints.right)
 
 
@@ -22,20 +21,20 @@ gameStates[`menu`] =function(){
 		if(mouse.pressed)
 		{
 			//Changes to the game state
-			gameStates.changeState(`level1`)
+			gameStates.changeState(`level1`) // this and below is what needs to change the button
 		}
 
 		//Hover Effect Graffic
-		startButton.color = `yellow`
+		startButton.color = `blue`
 	}
 	else
 	{
 		//Default Button Graphic
-		startButton.color = `red`
+		startButton.color = `teal`// color of the button
 	}
 	
 	menuBackground.drawStaticImage();
-	startButton.render()
+	startButton.render() //this is where the button gets drawn
 }
 	
 	
