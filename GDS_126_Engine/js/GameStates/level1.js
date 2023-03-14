@@ -106,8 +106,10 @@ for(let i=0; i<100; i++)
 
 /*------------------^^BULLET STUFF^^----------------------*/
 
+
 gameStates[`level1`] = function()
 {
+	sounds.play(`bg`, 1);
 	if(!keys[`W`] && !keys[`S`] && !keys[`D`] && !keys[`A`] && !keys[` `] && canShoot && wiz.canJump)
 	{
 		wiz.changeState(`idle`)
@@ -250,7 +252,6 @@ gameStates[`level1`] = function()
 
 	//moves repeating background
 	rbg.x = level.x*.5;
-	sounds.play(`bg`, 1);
 
 	//moves the middleground
 	bg.x = level.x*.75;
@@ -284,6 +285,7 @@ gameStates[`level1`] = function()
 	rbg.drawStaticImage([0,0]);
 	rbg.drawStaticImage([500,100]);
 	rbg.drawStaticImage([rbg.width,100]);
+	
 	
 
 	//renders the midground
