@@ -63,10 +63,12 @@ front.add([cave.grid])
 //list of items to be rendered in the level
 var levelItems=new Group();
 levelItems.add([caveBack.grid, ground, plat, cave.grid]);
+sounds.play(`bg`, 1);
 
 //Very back background
 var sky = new GameObject({width:canvas.width, height:canvas.height, color:"cyan"})
 sky.img.src = `images/sky.png`
+
 
 /*
  	//Not used, unless you want a 4th level of paralax
@@ -78,8 +80,9 @@ sky.img.src = `images/sky.png`
 var rbg = new GameObject({x:level.x, y:level.y, width:1024, height:512})
 rbg.img.src=`images/hills.png`
 
+
 //middleground
-var bg = new GameObject({x:-2000,y:200, width: 256, height: 256, })
+var bg = new GameObject({x:2000,y:200, width: 256, height: 256, })
 bg.img.src=`images/tree.png`
 
 /*------------------vvBULLET STUFFvv----------------------*/
@@ -147,7 +150,7 @@ gameStates[`level1`] = function()
 		wiz.canJump = false;
 		wiz.vy = wiz.jumpHeight;
 		wiz.changeState(`jump`)
-		//sounds.play(`splode`,1)
+		sounds.play(`jump`,1)
 	}
 	shotTimer--;
 	if(shotTimer <=0)
@@ -173,7 +176,7 @@ gameStates[`level1`] = function()
 			bullets[currentBullet].y = wiz.y + 20; // vertical offset 0 = center
 			bullets[currentBullet].dir = wiz.dir;
 			
-			//sounds.play(`splode`,1)
+			sounds.play(`attack`,1)
 
 			currentBullet++;
 			if(currentBullet>=bullets.length)
@@ -247,6 +250,7 @@ gameStates[`level1`] = function()
 
 	//moves repeating background
 	rbg.x = level.x*.5;
+	
 
 	//moves the middleground
 	bg.x = level.x*.75;
@@ -280,6 +284,7 @@ gameStates[`level1`] = function()
 	rbg.drawStaticImage([0,0]);
 	rbg.drawStaticImage([500,100]);
 	rbg.drawStaticImage([rbg.width,100]);
+	
 
 	//renders the midground
 	bg.drawStaticImage([0,0]);
