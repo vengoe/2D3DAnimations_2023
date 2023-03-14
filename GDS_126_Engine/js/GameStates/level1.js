@@ -250,7 +250,7 @@ gameStates[`level1`] = function()
 
 	//moves repeating background
 	rbg.x = level.x*.5;
-	
+	sounds.play(`bg`, 1);
 
 	//moves the middleground
 	bg.x = level.x*.75;
