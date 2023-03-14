@@ -79,8 +79,8 @@ var rbg = new GameObject({x:level.x, y:level.y, width:1024, height:512})
 rbg.img.src=`images/hills.png`
 
 //middleground
-var bg = new GameObject({x:level.x,y:level.y, width:canvas.width*4, height:canvas.height})
-bg.img.src=`images/bgfull.png`
+var bg = new GameObject({x:-2000,y:200, width: 256, height: 256, })
+bg.img.src=`images/tree.png`
 
 /*------------------vvBULLET STUFFvv----------------------*/
 
@@ -278,8 +278,8 @@ gameStates[`level1`] = function()
 	
 	//Renders the repeating background
 	rbg.drawStaticImage([0,0]);
-	rbg.drawStaticImage([-rbg.width,0]);
-	rbg.drawStaticImage([rbg.width,0]);
+	rbg.drawStaticImage([500,100]);
+	rbg.drawStaticImage([rbg.width,100]);
 
 	//renders the midground
 	bg.drawStaticImage([0,0]);
